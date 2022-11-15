@@ -1,5 +1,5 @@
 import p5 from "p5";
-import React, { useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import Sketch from "../Sketch";
 
 const FirstSketch = () => {
@@ -7,7 +7,7 @@ const FirstSketch = () => {
 
   const sketch = useCallback((p: p5) => {
     p.setup = () => {
-      p.createCanvas(720, 400);
+      p.createCanvas(window.innerWidth, window.innerHeight);
       p.stroke(255);
       p.noFill();
     };
@@ -18,7 +18,7 @@ const FirstSketch = () => {
         p.bezier(
           p.mouseX - i / 2.0,
           40 + i,
-          410,
+          420,
           20,
           440,
           300,
@@ -27,6 +27,10 @@ const FirstSketch = () => {
         );
       }
     };
+
+    window.addEventListener("resize", () => {
+      p.resizeCanvas(window.innerWidth, window.innerHeight);
+    });
 
     removeRef.current = p.remove;
   }, []);
