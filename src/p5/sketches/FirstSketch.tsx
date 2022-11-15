@@ -1,5 +1,5 @@
 import p5 from "p5";
-import React, { useCallback, useLayoutEffect, useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import Sketch from "../Sketch";
 
 const FirstSketch = () => {
@@ -29,16 +29,6 @@ const FirstSketch = () => {
     };
 
     removeRef.current = p.remove;
-  }, []);
-
-  useLayoutEffect(() => {
-    return () => {
-      if (removeRef.current) {
-        const fn = removeRef.current;
-
-        fn();
-      }
-    };
   }, []);
 
   return <Sketch sketch={sketch} />;
