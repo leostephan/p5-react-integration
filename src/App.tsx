@@ -1,6 +1,6 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import FirstSketch from "./p5/sketches/FirstSketch";
+import FirstSketch from "./p5/sketches/FirstSketch/FirstSketch";
 
 const GlobalStyle = createGlobalStyle`
   html, body, #root {
